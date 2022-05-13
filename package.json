@@ -1,0 +1,28 @@
+{
+  "name": "vdm-typora-plugin",
+  "version": "0.1.0",
+  "description": "VDM plugin for Typora.",
+  "keywords": [
+    "Typora"
+  ],
+  "author": "Mark Hong",
+  "license": "GPL-3.0",
+
+  "main": "typora_plugin.py",
+  "capability": [
+    "inotify-lookup"
+  ],
+  "scripts": {
+    "pre-install": "mkdir release; cp *.py release",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "homepage": "https://github.com/VDM-Maintainer-Group/vdm-typora-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VDM-Maintainer-Group/vdm-typora-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VDM-Maintainer-Group/vdm-typora-plugin/issues"
+  }
+}
