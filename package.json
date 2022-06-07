@@ -1,6 +1,6 @@
 {
   "name": "vdm-typora-plugin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "VDM plugin for Typora.",
   "keywords": [
     "Typora"
@@ -10,10 +10,10 @@
 
   "main": "typora_plugin.py",
   "capability": [
-    "inotify-lookup"
+    "inotify-lookup", "x11-manager"
   ],
   "scripts": {
-    "pre-install": "mkdir release; cp *.py release",
+    "pre-install": "mkdir -p release; mv *.py release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
