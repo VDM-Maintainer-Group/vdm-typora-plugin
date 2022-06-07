@@ -45,10 +45,10 @@ class TyporaPlugin(SRC_API):
 
         return records
 
-    def _associate_with_window(self, records) -> dict:
+    def _associate_with_window(self, records) -> list:
         results = list()
 
-        windows = self.xm.get_windows_by_name('Typora')
+        windows = self.xm.get_windows_by_name(PROG_NAME)
         windows.sort(key=lambda x:x['xid'])
         if windows:
             _pid = windows[0]['pid']
@@ -71,10 +71,10 @@ class TyporaPlugin(SRC_API):
         _time = time.time()
         _limit= len(records) * 2*SLOT
 
-        windows = self.xm.get_windows_by_name('Typora')
+        windows = self.xm.get_windows_by_name(PROG_NAME)
         while len(windows)!=records and time.time()-_time<_limit:
             time.sleep(SLOT)
-            windows = self.xm.get_windows_by_name('Typora')
+            windows = self.xm.get_windows_by_name(PROG_NAME)
         windows.sort(key=lambda x:x['xid'])
 
         for stat,w in zip(records, windows):
