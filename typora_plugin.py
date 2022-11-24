@@ -10,6 +10,11 @@ SLOT = 0.40
 PROG_NAME = 'Typora'
 WINDOW_TITLE = '%s.? - Typora'
 
+from pyvdm.core.ApplicationManager import ApplicationManager as AM
+TARGET = 'io.typora'
+APP = AM.get_application(TARGET)
+PROG_EXEC = APP['exec'].split()[0]
+
 class TyporaPlugin(SRC_API):
     @staticmethod
     def _gather_records(raw_results) -> list:
@@ -106,7 +111,7 @@ class TyporaPlugin(SRC_API):
             pass
         return 0
 
-    def onResume(self, stat_file):
+    def onResume(self, stat_file, new):
         ## load stat file with failure check
         with open(stat_file, 'r') as f:
             _file = f.read().strip()
@@ -119,7 +124,7 @@ class TyporaPlugin(SRC_API):
                 return -1
         ## open windows
         for item in records:
-            sp.Popen([ 'typora', item['path'] ], start_new_session=True)
+            sp.Popen([ PROG_EXEC, item['path'] ], start_new_session=True)
         ## rearrange windows by title
         self._rearrange_window(records)
         return 0
