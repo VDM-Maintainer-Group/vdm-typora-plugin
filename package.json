@@ -1,6 +1,7 @@
 {
   "name": "vdm-typora-plugin",
-  "version": "0.2.0",
+  "version": "0.4.0",
+  "target": "io.typora",
   "description": "VDM plugin for Typora.",
   "keywords": [
     "Typora"
